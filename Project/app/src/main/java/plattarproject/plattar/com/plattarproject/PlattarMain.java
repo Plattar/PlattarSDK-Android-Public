@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 
 import com.plattar.android.PlattarAppView;
 import com.plattar.android.cvengine.managers.core.CVManager;
@@ -42,6 +43,9 @@ public final class PlattarMain extends Activity implements PlattarStateListener 
         init();
     }
 
+    /**
+     * Ask for permissions, perform all required checks and launch the app
+     */
     private final void init() {
         // before we do anything, we need to ensure all required permissions are granted
         // by the user
@@ -50,29 +54,25 @@ public final class PlattarMain extends Activity implements PlattarStateListener 
             public void onComplete(final boolean success) {
                 // if all permissions have been granted properly we can proceed
                 // otherwise fail and exit
-                if (!success) {
-                    // show a friendly error message and exit
-                    ExitDialog.show(PlattarMain.this, "One or more permissions were denied. Cannot proceed!");
-                    return;
-                }
+                if (success) {
+                    // otherwise, we now need to ensure that the Tracking service can be
+                    // ran on this device. For a full list of ARCore supported devices please
+                    // visit https://developers.google.com/ar/discover/
+                    checkARCoreSupport(new PermissionCallback() {
+                        @Override
+                        public void onComplete(final boolean success) {
+                            // looks like ARCore is not supported
+                            if (!success) {
+                                // show a friendly error message and exit
+                                ExitDialog.show(PlattarMain.this, "ARCore is not supported on this device!");
+                                return;
+                            }
 
-                // otherwise, we now need to ensure that the Tracking service can be
-                // ran on this device. For a full list of ARCore supported devices please
-                // visit https://developers.google.com/ar/discover/
-                checkARCoreSupport(new PermissionCallback() {
-                    @Override
-                    public void onComplete(final boolean success) {
-                        // looks like ARCore is not supported
-                        if (!success) {
-                            // show a friendly error message and exit
-                            ExitDialog.show(PlattarMain.this, "ARCore is not supported on this device!");
-                            return;
+                            // we are finally good to go with the launch of the app
+                            setupPlattar();
                         }
-
-                        // we are finally good to go with the launch of the app
-                        setupPlattar();
-                    }
-                });
+                    });
+                }
             }
         });
     }
@@ -84,14 +84,13 @@ public final class PlattarMain extends Activity implements PlattarStateListener 
         // this is a Base64 encoded string of app specific data required by the UI system to setup
         // and initialise the SDK to CMS communication streams. This string can change on a
         // per app basis
-        final String appID = "";
+        final String appID = getString(R.string.app_code);
 
         // used to set certain settings/variables for plattar.
         final AppSettings settings = new PlattarSettings(appID);
 
         // we only support NATIVEAR for this particular example. Other backends require further setup.
         app = new PlattarAppView(this, settings, null, PlattarEngineCore.EngineCoreType.NATIVEAR);
-
         app.registerCallback(this);
 
         // this will push all internal GL/Rendering views into the top of the current activity.
@@ -154,12 +153,12 @@ public final class PlattarMain extends Activity implements PlattarStateListener 
         perms.ask(new PermissionCallback() {
             @Override
             public void onComplete(final boolean success) {
-                // allow perms instance to be garbage collected
-                perms = null;
-
                 if (callback != null) {
                     callback.onComplete(success);
                 }
+
+                // allow perms instance to be garbage collected
+                perms = null;
             }
         });
     }
@@ -188,7 +187,7 @@ public final class PlattarMain extends Activity implements PlattarStateListener 
         }
 
         // there was some kind of internal delay on checking for support. We should re-try this until
-        // a proper support/unsupported event occurs
+        // a proper support/unsupported event occurs. Retry on every 200ms
         if (status == CVManager.SupportStatus.CHECKING) {
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -258,5 +257,22 @@ public final class PlattarMain extends Activity implements PlattarStateListener 
         // statically callback to our Chrome client instance. This is required for very specific
         // user actions that do not support internal app hooks
         PlattarChromeClient.onActivityResult(requestCode, resultCode, intent);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+
+        final View mDecorView = getWindow().getDecorView();
+
+        if (hasFocus) {
+            mDecorView.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
     }
 }
