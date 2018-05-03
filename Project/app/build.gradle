@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "plattarproject.plattar.com.plattarproject"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // Keen IO is used for Analytics Reporting
+    implementation 'io.keen:keen-client-api-android:5.1.0@aar'
+    implementation 'io.keen:keen-client-api-query:5.1.0'
+
+    // Volley is used for certain REST API Queries
+    implementation 'com.android.volley:volley:1.0.0'
+
+    // JOML is used for 3D Matrix/Vector math
+    implementation 'org.joml:joml-android:1.9.3-SNAPSHOT'
+
+    // ARCore is the main tracking engine provided by google
+    implementation 'com.google.ar:core:1.1.0'
+
+    // Plattar SDK is required for the tracking/rendering and CMS integration
+    implementation(name: 'PlattarSDK', ext: 'aar')
+}
