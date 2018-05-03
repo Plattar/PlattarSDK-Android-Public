@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
@@ -45,7 +45,4 @@ dependencies {
 
     // ARCore is the main tracking engine provided by google
     implementation 'com.google.ar:core:1.1.0'
-
-    // Plattar SDK is required for the tracking/rendering and CMS integration
-    implementation(name: 'PlattarSDK', ext: 'aar')
 }
