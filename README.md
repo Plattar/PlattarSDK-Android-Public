@@ -3,7 +3,7 @@
 </h3>
 
 [![Twitter: @plattarglobal](https://img.shields.io/badge/contact-@plattarglobal-blue.svg?style=flat)](https://twitter.com/plattarglobal)
-[![Join the chat at https://gitter.im/Plattar-SDK-Devs/Lobby](https://img.shields.io/badge/chat-gitter/PlattarSDK-green.svg?style=flat)](https://gitter.im/Plattar-SDK-Devs/Lobby)
+[![Join Slack Chat](https://img.shields.io/badge/chat-slack-orange.svg?style=flat)](https://plattar.slack.com/messages/CB85ZEKNZ)
 [![Build Status](https://circleci.com/gh/Plattar/app-android/tree/master.svg?style=shield&circle-token=039e652a97c51f9cc66c23bd36b86c282ae4652c)](https://www.plattar.com)
 
 _Plattar SDK_ is a native framework which works with the _Plattar CMS_. This is a sample repository with example code to help integrate the _Plattar SDK_ into existing Android Applications.
