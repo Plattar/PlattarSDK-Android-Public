@@ -6,7 +6,7 @@
 [![Join Slack Chat](https://img.shields.io/badge/chat-slack-orange.svg?style=flat)](https://plattar.slack.com/messages/CB85ZEKNZ)
 [![Build Status](https://circleci.com/gh/Plattar/app-android/tree/master.svg?style=shield&circle-token=039e652a97c51f9cc66c23bd36b86c282ae4652c)](https://www.plattar.com)
 
-_Plattar SDK_ is a native framework which works with the _Plattar CMS_. This is a sample repository with example code to help integrate the _Plattar SDK_ into existing Android Applications.
+_Plattar SDK_ is a native framework which works with the _Plattar CMS_. This is a sample repository with example code to help integrate the _Plattar SDK_ into existing Android Applications. Looking for [IOS Integration](https://github.com/Plattar/PlattarSDK-IOS-Public)?
 
 ***
 
@@ -36,6 +36,8 @@ Save, recompile and relaunch the app.
 ### Limitations
 
 Plattar is designed to support multiple AR tracking backends. The following version of the SDK only supports Google ARCore. Attempting to launch any of the other backends is likely to lead to errors and problems.
+
+ARCore is only supported on selected Android devices. Check the [Supported Device List](https://developers.google.com/ar/discover/supported-devices) for more info.
 
 ### Questions and Feature Requests
 
