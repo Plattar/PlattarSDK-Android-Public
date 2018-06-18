@@ -18,9 +18,9 @@ This Plattar Project will compile and run without modifications and uses a sampl
 
 ### CMS Access
 
-This Plattar Project can be tied into a custom application if required. Please use the issue tracker for the Setup instructions and the app key.
+This Plattar Project can be tied into a custom application if required. Please [Generate](https://github.com/Plattar/PlattarSDK-Android-Public/wiki/Generating-App-Key) the required _App Key_.
 
-Once the app key is recieved, update the following file
+Once the _App Key_ is recieved, update the following file
 
 ```
 // res/values/strings.xml
