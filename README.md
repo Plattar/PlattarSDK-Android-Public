@@ -43,3 +43,7 @@ ARCore is only supported on selected Android devices. Check the [Supported Devic
 ### Questions and Feature Requests
 
 Please use the [Issue Tracker](https://github.com/Plattar/PlattarSDK-Android-Public/issues) for any questions, bug reports or feature requests.
+
+### Documentation
+
+Visit our dedicated [Wiki](https://github.com/Plattar/PlattarSDK-Android-Public/wiki) page for additional documentation.
