@@ -42,13 +42,15 @@ Plattar is designed to support multiple AR tracking backends. The following vers
 
 ARCore is only supported on selected Android devices. Check the [Supported Device List](https://developers.google.com/ar/discover/supported-devices) for more info.
 
+### WebXR Preview
+
+All Plattar Apps are eligable for preview via the [WebXR Device API](https://github.com/immersive-web/webxr). 
+
+WebXR is a device API which allows running Augmented Reality/Virtual Reality content via a supported Web Browser. View our [WebXR Setup Instructions](https://github.com/Plattar/PlattarSDK-Android-Public/wiki/WebXR---Preview) on how to preview your Plattar app via WebXR.
+
 ### Questions and Feature Requests
 
 Please use the [Issue Tracker](https://github.com/Plattar/PlattarSDK-Android-Public/issues) for any questions, bug reports or feature requests.
-
-### WebXR Preview
-
-All Plattar Apps are eligable for preview via [WebXR](https://github.com/immersive-web/webxr). WebXR is a device API which allows running Augmented Reality/Virtual Reality content via a Web Browser. View our [WebXR Setup Instructions](https://github.com/Plattar/PlattarSDK-Android-Public/wiki/WebXR---Preview) on how to preview your Plattar app via WebXR.
 
 ### Documentation
 
