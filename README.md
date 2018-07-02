@@ -18,9 +18,7 @@ _Plattar SDK_ is a native framework which works with the _Plattar CMS_. This is 
 _Plattar is the Augmented Reality platform for product experiences._ Plattar’s simple AR creator, iOS and Android apps, 3D web viewers, developer-friendly SDKs & APIs empower brands to build amazing experiences that put virtual products directly into your customers hands.
 
 - The Plattar SDK for Android lets you embed Plattar AR UI and 3D Rendering direct into your own apps and supports ARCore out of the box.
-
 - Use the Plattar [Experience Builder](https://www.plattar.com/) to curate and enrich 3D content, and build and deploy updates direct to your SDK powered app.
-
 - Create 3D content once and also deliver it dynamically to Plattar [3D Viewers](https://www.plattar.com/product) that can be embedded on your website.
 
 3D content, rich media and interactions are created in the web based [Experience Builder](https://www.plattar.com/). Free trials are available at [plattar.com](https://www.plattar.com/)
