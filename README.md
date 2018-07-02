@@ -46,6 +46,10 @@ ARCore is only supported on selected Android devices. Check the [Supported Devic
 
 Please use the [Issue Tracker](https://github.com/Plattar/PlattarSDK-Android-Public/issues) for any questions, bug reports or feature requests.
 
+### WebXR Preview
+
+All Plattar Apps are eligable for preview via [WebXR](https://github.com/immersive-web/webxr). WebXR is a device API which allows running Augmented Reality/Virtual Reality content via a Web Browser. View our [WebXR Setup Instructions](https://github.com/Plattar/PlattarSDK-Android-Public/wiki/WebXR---Preview) on how to preview your Plattar app via WebXR.
+
 ### Documentation
 
 Visit our dedicated [Wiki](https://github.com/Plattar/PlattarSDK-Android-Public/wiki) page for additional documentation.
