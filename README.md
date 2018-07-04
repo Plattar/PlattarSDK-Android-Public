@@ -5,7 +5,7 @@
 </h3>
 
 [![Twitter: @plattarglobal](https://img.shields.io/badge/contact-@plattarglobal-blue.svg?style=flat)](https://twitter.com/plattarglobal)
-[![Join Slack Chat](https://img.shields.io/badge/chat-slack-orange.svg?style=flat)](https://plattar.slack.com/messages/CB85ZEKNZ)
+[![Join Slack Chat](https://img.shields.io/badge/chat-slack-orange.svg?style=flat)](https://join.slack.com/t/plattar-public/shared_invite/enQtMzkyNjIxOTM1NjE4LTNkZmRiNWRkOTQ2MWQ4MTRlYTgyY2U0MGQxNjkyYzQ3MTc0NDAyZjE3MmU4MzRjNWQzYWM0NDA4YzRhNDBmNzA)
 [![Build Status](https://circleci.com/gh/Plattar/app-android/tree/master.svg?style=shield&circle-token=039e652a97c51f9cc66c23bd36b86c282ae4652c)](https://www.plattar.com)
 [![WebXR Preview](https://img.shields.io/badge/webxr-setup-000000.svg?style=flat)](https://github.com/Plattar/PlattarSDK-Android-Public/wiki/WebXR---Preview)
 
