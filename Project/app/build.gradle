@@ -1,15 +1,22 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         applicationId "plattarproject.plattar.com.plattarproject"
-        minSdkVersion 23
-        targetSdkVersion 27
+        minSdkVersion 24
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    // enable Java 8 features
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -28,21 +35,17 @@ repositories {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+
+    // Google Volley is used by Plattar for GET/POST requests for heavy processes
+    implementation (group: 'com.android.volley', name: 'volley', version: '1.1.1')
+    // Google ARCore is used by Plattar for 6DOF and Marker Detection/Tracking
+    implementation (group: 'com.google.ar', name: 'core', version: '1.5.0')
+    // Android X See - https://developer.android.com/jetpack/androidx/
+    implementation (group: 'androidx.core', name: 'core', version: '1.0.1')
+    // Android X AppCompat Layer
+    implementation (group: 'androidx.appcompat', name: 'appcompat', version: '1.0.2')
+
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-    // Keen IO is used for Analytics Reporting
-    implementation 'io.keen:keen-client-api-android:5.1.0@aar'
-    implementation 'io.keen:keen-client-api-query:5.1.0'
-
-    // Volley is used for certain REST API Queries
-    implementation 'com.android.volley:volley:1.0.0'
-
-    // JOML is used for 3D Matrix/Vector math
-    implementation 'org.joml:joml-android:1.9.3-SNAPSHOT'
-
-    // ARCore is the main tracking engine provided by google
-    implementation 'com.google.ar:core:1.3.0'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 }
