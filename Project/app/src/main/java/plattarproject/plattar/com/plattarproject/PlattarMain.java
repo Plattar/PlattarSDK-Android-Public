@@ -36,37 +36,48 @@ public final class PlattarMain extends Activity {
     }
 
     private void launchPlattar() {
-        if (app != null) {
-            app.start();
-        }
-        else {
-            final String appID = getString(R.string.app_code);
-            app = com.plattar.android.PlattarMain.init(this);
-            app.setup(new PlattarSettings(appID));
+        final String appID = getString(R.string.app_code);
+        app = com.plattar.android.PlattarMain.init(this);
+        app.setup(new PlattarSettings(appID));
 
-            app.registerForEventCallback(PlattarWebEvent.WebEvent.onWebGLReady, (webEvent, jsonValue) -> {
-                // This event can be used to know when the plattar view has loaded and launched
-            });
+        app.registerForEventCallback(PlattarWebEvent.WebEvent.onWebGLReady, (webEvent, jsonValue) -> {
+            // This event can be used to know when the plattar view has loaded and launched
+        });
 
-            app.start();
-        }
+        app.start();
     }
 
     @Override
     public void onResume() {
         super.onResume();
 
-        launchPlattar();
+        if (app != null) {
+            // allow the activity to be GC'd
+            com.plattar.android.PlattarMain.setActivity(this);
+
+            app.resume();
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+
+        if (app != null) {
+            app.pause();
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
+        if (app != null) {
+            app.destroy();
+
+            // allow the activity to be GC'd
+            com.plattar.android.PlattarMain.setActivity(null);
+        }
     }
 
     /**
