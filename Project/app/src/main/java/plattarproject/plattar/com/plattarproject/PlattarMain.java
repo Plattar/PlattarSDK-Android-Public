@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
+
 import com.plattar.android.plattar.events.PlattarWebEvent;
 import com.plattar.android.plattar.interfaces.PlattarEngine;
 import com.plattar.android.plattar.permissions.PlattarPermission;
@@ -84,19 +86,19 @@ public final class PlattarMain extends Activity {
      * Used to pipe permissions into the permission manager and the app
      */
     @Override
-    public void onRequestPermissionsResult(final int requestCode, final String[] permissions, final int[] grantResults) {
+    public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions, @NonNull final int[] grantResults) {
         PlattarPermission.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+    public void onActivityResult(final int requestCode, final int resultCode, final Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
         PlattarChromeClient.onActivityResult(requestCode, resultCode, intent);
     }
 
     @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
+    public void onWindowFocusChanged(final boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
 
         final View mDecorView = getWindow().getDecorView();
