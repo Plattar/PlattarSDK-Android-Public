@@ -66,7 +66,7 @@ public final class MainViewController {
         this.app = app;
     }
 
-    public final void moveToFront() {
+    public final void bringViewToFront() {
         if (mainView != null) {
             mainView.bringToFront();
         }

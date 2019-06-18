@@ -12,7 +12,8 @@
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:background="@color/browser_background"/>
 
     <LinearLayout
         android:id="@+id/button_view"
@@ -26,7 +27,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:styke
             android:text="@string/open_app_button_text"
             android:textColor="@color/colorBlack" />
 

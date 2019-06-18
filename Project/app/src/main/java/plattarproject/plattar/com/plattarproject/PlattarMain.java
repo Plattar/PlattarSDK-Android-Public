@@ -47,6 +47,7 @@ public final class PlattarMain extends Activity {
 
         app.registerForEventCallback(PlattarWebEvent.WebEvent.onWebGLReady, (webEvent, jsonValue) -> {
             // This event can be used to know when the plattar view has loaded and launched
+            mainViewController.bringViewToFront();
         });
 
         app.start();
