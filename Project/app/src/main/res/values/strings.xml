@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Plattar Project</string>
     <string name="app_code">eyJiYXNlVXJsIjoiaHR0cHM6Ly9zdGFnaW5nLnBsYXR0YXIuc3BhY2UvdGhlbWVzL3Nka0xpdmUvaW5kZXguaHRtbCIsImJhc2VDb21tYW5kIjoiVzNzaVpYWmxiblJPWVcxbElqb2ljMlJyYkc5aFpHRndjR3hwWTJGMGFXOXVJaXdpWkdGMFlTSTZleUpoY0hCSlJDSTZJbVptWmpWaFlXWXdMVGxoT0RFdE1URmxOaTFpTlRoa0xURXhZVEEzTUdZeFltTTNaaUlzSW5Sb1pXMWxJam9pWTJGeVpETXZkM2QzSW4xOVhRPT0ifQ==</string>
+
+    <!-- main_view.xml variables -->
+    <string name="main_view_header">PLATTAR SAMPLE</string>
+    <string name="open_app_button_text">Open App</string>
+    <string name="open_scene_button_text">Open Scene</string>
+    <string name="open_page_button_text">Open Page</string>
 </resources>
