@@ -24,10 +24,13 @@ import com.plattar.android.plattar.webview.client.PlattarChromeClient;
 public final class PlattarMain extends Activity {
 
     private PlattarEngine app;
+    private MainViewController mainViewController;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mainViewController = new MainViewController(this);
 
         // plattar only works in Portrait Orientation for now. Landscape orientations
         // are unsupported and may cause unexpected errors/problems
@@ -47,6 +50,8 @@ public final class PlattarMain extends Activity {
         });
 
         app.start();
+
+        mainViewController.setApp(app);
     }
 
     @Override

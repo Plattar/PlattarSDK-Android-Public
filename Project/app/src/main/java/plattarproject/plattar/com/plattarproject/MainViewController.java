@@ -19,36 +19,46 @@ public final class MainViewController {
             mainView = vi.inflate(R.layout.main_view, null);
             mainActivity.setContentView(mainView);
 
-            final Button openAppButton = mainView.findViewById(R.id.open_app_button);
-            final Button openSceneButton = mainView.findViewById(R.id.open_scene_button);
-            final Button openPageButton = mainView.findViewById(R.id.open_page_button);
-
-            if (openAppButton != null) {
-                openAppButton.setOnClickListener(view -> {
-                    if (app != null) {
-                        app.getAsyncBridge().openApplication("3543b61c-7b44-4f90-a92f-4352952e5fe1");
-                    }
-                });
-            }
-
-            if (openSceneButton != null) {
-                openSceneButton.setOnClickListener(view -> {
-                    if (app != null) {
-                        app.getAsyncBridge().openScene("f584ab37-c542-4536-9b63-dd41a167144a");
-                    }
-                });
-            }
-
-            if (openPageButton != null) {
-                openPageButton.setOnClickListener(view -> {
-                    if (app != null) {
-                        app.getAsyncBridge().openPage("471b2ac7-f873-498f-a1b9-a51ba6c1e385");
-                    }
-                });
-            }
+            setCallbacks();
         }
         else {
             mainView = null;
+        }
+    }
+
+    private final void setCallbacks() {
+        if (mainView == null) {
+            return;
+        }
+
+        final Button openAppButton = mainView.findViewById(R.id.open_app_button);
+
+        if (openAppButton != null) {
+            openAppButton.setOnClickListener(view -> {
+                if (app != null) {
+                    app.getAsyncBridge().openApplication("3543b61c-7b44-4f90-a92f-4352952e5fe1");
+                }
+            });
+        }
+
+        final Button openSceneButton = mainView.findViewById(R.id.open_scene_button);
+
+        if (openSceneButton != null) {
+            openSceneButton.setOnClickListener(view -> {
+                if (app != null) {
+                    app.getAsyncBridge().openScene("f584ab37-c542-4536-9b63-dd41a167144a");
+                }
+            });
+        }
+
+        final Button openPageButton = mainView.findViewById(R.id.open_page_button);
+
+        if (openPageButton != null) {
+            openPageButton.setOnClickListener(view -> {
+                if (app != null) {
+                    app.getAsyncBridge().openPage("471b2ac7-f873-498f-a1b9-a51ba6c1e385");
+                }
+            });
         }
     }
 
