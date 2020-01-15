@@ -36,7 +36,7 @@ public final class MainViewController {
         if (openAppButton != null) {
             openAppButton.setOnClickListener(view -> {
                 if (app != null) {
-                    app.getAsyncBridge().openApplication("3543b61c-7b44-4f90-a92f-4352952e5fe1");
+                    app.getAsyncBridge().openApplication("c81be943-98b4-41b0-9008-f7a178b7ee8d");
                 }
             });
         }
@@ -56,7 +56,7 @@ public final class MainViewController {
         if (openPageButton != null) {
             openPageButton.setOnClickListener(view -> {
                 if (app != null) {
-                    app.getAsyncBridge().openPage("471b2ac7-f873-498f-a1b9-a51ba6c1e385");
+                    app.getAsyncBridge().openPage("3de7bc00-ed55-11e8-b2ba-2f1d489335cb");
                 }
             });
         }
