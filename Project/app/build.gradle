@@ -40,7 +40,7 @@ dependencies {
     // Google Volley is used by Plattar for GET/POST requests for heavy processes
     implementation (group: 'com.android.volley', name: 'volley', version: '1.1.1')
     // Google ARCore is used by Plattar for 6DOF and Marker Detection/Tracking
-    implementation (group: 'com.google.ar', name: 'core', version: '1.12.0')
+    implementation (group: 'com.google.ar', name: 'core', version: '1.14.0')
     // Android X See - https://developer.android.com/jetpack/androidx/
     implementation (group: 'androidx.core', name: 'core', version: '1.0.2')
     // Android X AppCompat Layer
