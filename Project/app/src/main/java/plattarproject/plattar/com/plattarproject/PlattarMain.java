@@ -41,12 +41,21 @@ public final class PlattarMain extends Activity {
 
     private void launchPlattar() {
         final String appID = getString(R.string.app_code);
+
+        // PlattarMain.init() and setup() functions can be run pre-emptively
+        // to warm-up the AR systems. The warmup ensures that Plattar starts up.
         app = com.plattar.android.PlattarMain.init(this);
+
+        // setup is run internally and is an async process.
         app.setup(new PlattarSettings(appID));
 
         app.registerForEventCallback(PlattarWebEvent.WebEvent.onWebGLReady, (webEvent, jsonValue) -> {
+            // This callback occurs when the SDK has finished loading and is ready for rendering
         });
 
+        // app.start() will connect to the Plattar CMS and start the AR component.
+        // This can be called when AR is actually needed (ie, user clicks the AR button). If
+        // warmup is completed then this will be a faster process.
         app.start();
     }
 
