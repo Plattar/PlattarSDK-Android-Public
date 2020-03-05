@@ -17,7 +17,8 @@
             android:name=".PlattarMain"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize">
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
+            tools:ignore="LockedOrientationActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
