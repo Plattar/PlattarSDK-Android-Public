@@ -15,38 +15,4 @@
         android:textStyle="bold"
         android:background="@color/browser_background"/>
 
-    <LinearLayout
-        android:id="@+id/button_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/open_app_button"
-            style="@android:style/Widget.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/open_app_button_text"
-            android:textColor="@color/colorBlack" />
-
-        <Button
-            android:id="@+id/open_scene_button"
-            style="@android:style/Widget.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/open_scene_button_text"
-            android:textColor="@color/colorBlack" />
-
-        <Button
-            android:id="@+id/open_page_button"
-            style="@android:style/Widget.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/open_page_button_text"
-            android:textColor="@color/colorBlack" />
-    </LinearLayout>
-
 </LinearLayout>

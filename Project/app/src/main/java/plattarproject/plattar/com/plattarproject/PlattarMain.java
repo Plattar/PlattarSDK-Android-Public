@@ -1,5 +1,6 @@
 package plattarproject.plattar.com.plattarproject;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -24,13 +25,11 @@ import com.plattar.android.plattar.webview.client.PlattarChromeClient;
 public final class PlattarMain extends Activity {
 
     private PlattarEngine app;
-    private MainViewController mainViewController;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mainViewController = new MainViewController(this);
 
         // plattar only works in Portrait Orientation for now. Landscape orientations
         // are unsupported and may cause unexpected errors/problems
@@ -46,13 +45,9 @@ public final class PlattarMain extends Activity {
         app.setup(new PlattarSettings(appID));
 
         app.registerForEventCallback(PlattarWebEvent.WebEvent.onWebGLReady, (webEvent, jsonValue) -> {
-            // This event can be used to know when the plattar view has loaded and launched
-            mainViewController.bringViewToFront();
         });
 
         app.start();
-
-        mainViewController.setApp(app);
     }
 
     @Override

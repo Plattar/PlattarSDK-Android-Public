@@ -4,7 +4,4 @@
 
     <!-- main_view.xml variables -->
     <string name="main_view_header">PLATTAR SAMPLE</string>
-    <string name="open_app_button_text">Open App</string>
-    <string name="open_scene_button_text">Open Scene</string>
-    <string name="open_page_button_text">Open Page</string>
 </resources>
