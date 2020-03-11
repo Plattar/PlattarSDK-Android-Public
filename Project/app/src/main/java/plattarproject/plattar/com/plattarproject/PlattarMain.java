@@ -17,7 +17,7 @@ import com.plattar.android.plattar.settings.PlattarSettings;
 import com.plattar.android.plattar.webview.client.PlattarChromeClient;
 
 /**
- * Launches the ARCore Backed Plattar app.
+ * Launches the ARCore Backed Plattar App.
  *
  * To run this example, the user must have an ARCore enabled device. For a full list of supported
  * devices please visit https://developers.google.com/ar/discover/
@@ -40,17 +40,26 @@ public final class PlattarMain extends Activity {
     }
 
     private void launchPlattar() {
-        final String appID = getString(R.string.app_code);
+        final String appCode = getString(R.string.app_code);
 
         // PlattarMain.init() and setup() functions can be run pre-emptively
         // to warm-up the AR systems. The warmup ensures that Plattar starts up.
         app = com.plattar.android.PlattarMain.init(this);
 
+        // generate a new settings configuration from the provided app code
+        final PlattarSettings settings = new PlattarSettings((appCode));
+
+        // enables/disables chrome debugging. This should be disabled for
+        // release builds. For ad-hoc debugging once an app is released, this
+        // flag can be enabled via the Plattar CMS
+        settings.setEnableDebugging(true);
+
         // setup is run internally and is an async process.
-        app.setup(new PlattarSettings(appID));
+        app.setup(settings);
 
         app.registerForEventCallback(PlattarWebEvent.WebEvent.onWebGLReady, (webEvent, jsonValue) -> {
             // This callback occurs when the SDK has finished loading and is ready for rendering
+            // use this to perform any native UI layouts/actions etc..
         });
 
         // app.start() will connect to the Plattar CMS and start the AR component.
