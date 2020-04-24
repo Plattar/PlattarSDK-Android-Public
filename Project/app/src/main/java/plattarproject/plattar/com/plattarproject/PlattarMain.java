@@ -60,6 +60,14 @@ public final class PlattarMain extends Activity {
         app.registerForEventCallback(PlattarWebEvent.WebEvent.onWebGLReady, (webEvent, jsonValue) -> {
             // This callback occurs when the SDK has finished loading and is ready for rendering
             // use this to perform any native UI layouts/actions etc..
+
+            // EXAMPLE
+            // opens and augments a scene with a given uuid
+            // app.getAsyncBridge().openScene("SCENE_UUID");
+
+            // EXAMPLE
+            // opens a page with a given uuid
+            // app.getAsyncBridge().openPage("PAGE_UUID");
         });
 
         // app.start() will connect to the Plattar CMS and start the AR component.
